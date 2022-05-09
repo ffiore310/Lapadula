@@ -36,3 +36,15 @@ def sorteia_letra(s, l):
     if len(s) == 0:
         return ''
     return choice(s)
+
+def adiciona_em_ordem (pais, dist, l1):
+    nl= [pais, dist]
+    i = 0
+    if l1 == []:
+        l1.append(nl)
+        return l1
+    while i < len(l1):
+        if dist < l1[i][1]:
+            l1.insert(i, nl)
+            return l1
+        i+=1
