@@ -16,7 +16,6 @@ def normaliza (d1):
             nd[pais]['continente'] = continente
     return nd
 
-from random import choice
 def sorteia_pais(d1):
     lista= []
     for pais in d1:
