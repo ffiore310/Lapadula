@@ -21,3 +21,18 @@ def sorteia_pais(d1):
     for pais in d1:
         lista.append(pais)
     return choice(lista)
+
+def esta_na_lista(p, l):
+    for lp in l:
+        if p in lp:
+            return True
+    return False
+
+def sorteia_letra(s, l):
+    lc = ['.', ',', '-', ';', ' ']
+    s = s.lower()
+    for e in (lc+l):
+        s = s.replace(e, '')
+    if len(s) == 0:
+        return ''
+    return choice(s)
