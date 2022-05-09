@@ -1,4 +1,5 @@
 import math
+from random import choice
 
 def haversine(r, e1, h1, e2, h2):
     x = (math.sin(math.radians((e2 - e1)/2)))**2
@@ -15,3 +16,9 @@ def normaliza (d1):
             nd[pais]['continente'] = continente
     return nd
 
+from random import choice
+def sorteia_pais(d1):
+    lista= []
+    for pais in d1:
+        lista.append(pais)
+    return choice(lista)
