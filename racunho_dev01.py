@@ -1,6 +1,6 @@
 #Codigo
 
-from funcoes import sorteia_pais
+from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine
 
 DADOS = {
   "asia": {
@@ -3817,24 +3817,40 @@ DADOS = {
   }
 }
 
+raio_Terra = 6371
+
+dicionario_paises = normaliza(DADOS)
+
 cont_sorteado = sorteia_pais(DADOS)
 pais_sorteado = sorteia_pais(DADOS[cont_sorteado])
-
+lista_inventario = []
 tentativas = 20
 
 print('Um país foi sorteado, tente adivinhar!')
 print('Você tem {} tentativa(s)'.format(tentativas))
 resposta = input('Qual o seu palpite: ')
+resposta_minuscula = resposta.lower()
 
 while tentativas != 0 or resposta != pais_sorteado:
     if resposta == 'dica':
+        tentativas -= 1
         print('dica')
+
     elif resposta == 'inventario':
         print('Fernando')
+
     elif resposta == 'desisto':
         print('Cala')
-    elif resposta in DADOS:
-        print('a')
+
+    elif resposta_minuscula in dicionario_paises:
+        lat1 = dicionario_paises[resposta_minuscula]['geo']['latitude']
+        long1 = dicionario_paises[resposta_minuscula]['geo']['longitude'] 
+        lat2 = dicionario_paises[pais_sorteado]['geo']['latitude']
+        long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
+        distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
+        lista_inventario = adiciona_em_ordem(resposta_minuscula, distancia, lista_inventario)
+        print(lista_inventario)
+        resposta = input('Qual o seu palpite: ')
     else:
         print('País desconhecido')
         resposta = input('Qual o seu palpite: ')
