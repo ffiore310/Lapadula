@@ -3854,23 +3854,19 @@ while roda_while:
         print('Fernando')
 
     
-
     elif resposta.lower() in dicionario_paises:
-
-        if resposta.lower() not in lista_paises:
-            lista_paises.append(resposta.lower())
-
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
         long1 = dicionario_paises[resposta.lower()]['geo']['longitude'] 
         lat2 = dicionario_paises[pais_sorteado]['geo']['latitude']
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
-        if resposta.lower() in lista_inventario:
+        if resposta.lower() in lista_paises:
             print(lista_inventario)
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
         else:
+            lista_paises.append(resposta.lower())
             tentativas -= 1
             lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
             print(lista_inventario)
