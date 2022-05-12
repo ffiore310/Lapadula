@@ -3841,9 +3841,9 @@ while roda_while:
                 roda_while = False
                 print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
             
-    elif tentativas > 0:
-        roda_while = False
+    elif tentativas == 0:
         print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
+        roda_while = False
 
     elif resposta == 'dica':
         tentativas -= 1
@@ -3863,8 +3863,7 @@ while roda_while:
         distancia = int(distancia)
         
         print('Você tem {} tentativa(s)'.format(tentativas))
-        resposta = input('Qual o seu palpite: ')
 
     else:
         print('País desconhecido')
-        resposta = input('Qual o seu palpite: ')
+        
