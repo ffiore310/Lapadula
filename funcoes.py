@@ -57,5 +57,5 @@ def adiciona_em_ordem(p, d, l):
 def tabela_distancias (l1):
     nl = ''
     for e in l1:
-        nl += ' {} -> {}\n'.format(e[1],e[0])
+        nl += ' {} km --> {}\n'.format(e[1],e[0])
     return nl

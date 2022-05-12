@@ -3856,7 +3856,7 @@ while roda_while:
 
     elif resposta == 'inventario':
         inventario = tabela_distancias(lista_inventario)
-        print(inventario)
+        print('\nInventario :\n {}'.format(inventario))
 
     
     elif resposta.lower() in dicionario_paises:
@@ -3870,7 +3870,7 @@ while roda_while:
 
         if resposta.lower() in lista_paises:
             inventario = tabela_distancias(lista_inventario)
-            print(inventario)
+            print('\nInventario :\n {}'.format(inventario))
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
             
@@ -3879,7 +3879,7 @@ while roda_while:
             tentativas -= 1
             lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
             inventario = tabela_distancias(lista_inventario)
-            print(inventario)
+            print('\nInventario :\n {}'.format(inventario))
             print('Você tem {} tentativa(s)'.format(tentativas))
 
     else:
