@@ -3827,21 +3827,31 @@ pais_sorteado = sorteia_pais(DADOS[cont_sorteado])
 lista_inventario = []
 tentativas = 20
 
+roda_while = True
+
 print('  =============================  \n|                               |\n|  Bem-vindo ao Insper Paises!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n \nUm pais foi escolido! \nTente adivinhar! \nVoce tem {0} tentativa(s) '.format(tentativas))
 
-while tentativas != 0 or resposta != pais_sorteado:
+while roda_while:
     
     resposta = input('Qual o seu palpite?: ')
 
-    if resposta == 'dica':
+    if resposta == 'desisto':
+            certeza = input('Tem certeza que deseja desistir da rodada? [s|n]')
+            if certeza == 's':
+                roda_while = False
+                print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
+            
+    elif tentativas != 0:
+        roda_while = False
+
+    elif resposta == 'dica':
         tentativas -= 1
         print('dica')
 
     elif resposta == 'inventario':
         print('Fernando')
 
-    elif resposta == 'desisto':
-        print('Cala')
+    
 
     elif resposta.lower() in dicionario_paises:
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
