@@ -3837,7 +3837,7 @@ while roda_while:
     resposta = input('Qual o seu palpite?: ')
 
     if resposta.lower() == pais_sorteado:
-        print('Voce acertou!')
+        print('Parabens! Voce acertou em {} tentativa(s)'.format(20-tentativas+1))
         roda_while = False
 
     elif resposta == 'desisto':
