@@ -59,3 +59,13 @@ def tabela_distancias (l1):
     for e in l1:
         nl += ' {} km --> {}\n'.format(e[1],e[0])
     return nl
+
+# l1 = {dicas01:valor, dica02:valor02 }
+def tabela_dicas (l1):
+    nl = ''
+    for k,v in l1.items():
+        nl += '- {}: {}\n'.format(k,v)
+    return nl
+
+l = {'chile':1000, 'brasil':5000}
+print(tabela_dicas(l))
