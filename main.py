@@ -3836,9 +3836,12 @@ while roda_while:
     
     resposta = input('Qual o seu palpite?: ')
 
+   # ACERTOU O JOGO
     if resposta.lower() == pais_sorteado:
         print('Parabens! Voce acertou em {} tentativa(s)'.format(20-tentativas+1))
         roda_while = False
+
+  # DESISTIU DO JOGO
 
     elif resposta == 'desisto':
             certeza = input('Tem certeza que deseja desistir da rodada? [s|n]')
@@ -3847,19 +3850,28 @@ while roda_while:
                 print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
                 print('Ate a proxima!')
             
+    # ACABAR AS TENTATIVAS
+
     elif tentativas == 1:
         print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
         roda_while = False
 
+  # MERCADO DE DICAS
+
     elif resposta == 'dica':
         print('dica')
+
+  # PRINT INVENTARIO
 
     elif resposta == 'inventario':
         inventario = tabela_distancias(lista_inventario)
         print('\nInventario :\n {}'.format(inventario))
 
-    
+  # CHUTE FOR DIFERENTE
+
     elif resposta.lower() in dicionario_paises:
+
+      #CALCULAR AS DISTANCIAS
 
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
         long1 = dicionario_paises[resposta.lower()]['geo']['longitude'] 
@@ -3867,12 +3879,16 @@ while roda_while:
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
+      
+      # PAIS JA FOI CHUTADO
 
         if resposta.lower() in lista_paises:
             inventario = tabela_distancias(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
+
+      # PAIS NAO FOI CHUTADO
             
         else:
             lista_paises.append(resposta.lower())
@@ -3881,6 +3897,8 @@ while roda_while:
             inventario = tabela_distancias(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
             print('Você tem {} tentativa(s)'.format(tentativas))
+
+# SE O PAIS FOR DESCONHECIDO
 
     else:
         print('País desconhecido')
