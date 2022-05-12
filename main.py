@@ -1,5 +1,5 @@
 # BANCO DE DADOS
-from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine
+from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine, tabela_distancias
 
 DADOS = {
   "asia": {
@@ -3851,7 +3851,8 @@ while roda_while:
         print('dica')
 
     elif resposta == 'inventario':
-        print('Fernando')
+        inventario = tabela_distancias(lista_inventario)
+        print(inventario)
 
     
     elif resposta.lower() in dicionario_paises:
@@ -3862,14 +3863,16 @@ while roda_while:
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
         if resposta.lower() in lista_paises:
-            print(lista_inventario)
+            inventario = tabela_distancias(lista_inventario)
+            print(inventario)
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
         else:
             lista_paises.append(resposta.lower())
             tentativas -= 1
             lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
-            print(lista_inventario)
+            inventario = tabela_distancias(lista_inventario)
+            print(inventario)
             print('Você tem {} tentativa(s)'.format(tentativas))
 
     else:
