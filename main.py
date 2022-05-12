@@ -3860,17 +3860,20 @@ while roda_while:
 
     
     elif resposta.lower() in dicionario_paises:
+
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
         long1 = dicionario_paises[resposta.lower()]['geo']['longitude'] 
         lat2 = dicionario_paises[pais_sorteado]['geo']['latitude']
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
+
         if resposta.lower() in lista_paises:
             inventario = tabela_distancias(lista_inventario)
             print(inventario)
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
+            
         else:
             lista_paises.append(resposta.lower())
             tentativas -= 1
