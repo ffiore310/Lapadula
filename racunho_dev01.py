@@ -1,6 +1,6 @@
 #Codigo
 
-from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine
+from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine, tabela_distancias
 
 DADOS = {
   "asia": {
@@ -3837,41 +3837,58 @@ while roda_while:
     
     resposta = input('Qual o seu palpite?: ')
 
-    if resposta == 'desisto':
+    if resposta.lower() == pais_sorteado:
+        print('Parabens! Voce acertou em {} tentativa(s)'.format(20-tentativas+1))
+        roda_while = False
+
+    elif resposta == 'desisto':
             certeza = input('Tem certeza que deseja desistir da rodada? [s|n]')
             if certeza == 's':
                 roda_while = False
                 print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
                 print('Ate a proxima!')
             
-    elif tentativas == 0:
+    elif tentativas == 1:
         print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
         roda_while = False
 
     elif resposta == 'dica':
-        print('dica')
+        dicas = {}
+        print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
+        opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
+        if opcao == 3:
+            for e, i in dicionario_paises.items():
+                area = i['area']
+                dicas['Área'] = area
+                print(dicas)
+        
 
     elif resposta == 'inventario':
-        print('Fernando')
+        inventario = tabela_distancias(lista_inventario)
+        print('\nInventario :\n {}'.format(inventario))
 
     
-
     elif resposta.lower() in dicionario_paises:
+
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
         long1 = dicionario_paises[resposta.lower()]['geo']['longitude'] 
         lat2 = dicionario_paises[pais_sorteado]['geo']['latitude']
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
+
         if resposta.lower() in lista_paises:
-            print(lista_inventario)
+            inventario = tabela_distancias(lista_inventario)
+            print('\nInventario :\n {}'.format(inventario))
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
+            
         else:
             lista_paises.append(resposta.lower())
             tentativas -= 1
             lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
-            print(lista_inventario)
+            inventario = tabela_distancias(lista_inventario)
+            print('\nInventario :\n {}'.format(inventario))
             print('Você tem {} tentativa(s)'.format(tentativas))
 
     else:
