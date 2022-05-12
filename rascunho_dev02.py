@@ -3889,4 +3889,9 @@ while roda_while:
 def tabela_distancias (l1):
     nl = ''
     for e in l1:
-        nl
+        nl += e[1], '->',e[0]
+    return nl
+
+l = [['br', 1000], ['china', 5000]]
+
+print(tabela_distancias(l))
