@@ -3841,8 +3841,9 @@ while roda_while:
                 roda_while = False
                 print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
             
-    elif tentativas != 0:
+    elif tentativas > 0:
         roda_while = False
+        print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
 
     elif resposta == 'dica':
         tentativas -= 1
