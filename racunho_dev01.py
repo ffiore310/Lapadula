@@ -3850,10 +3850,15 @@ while tentativas != 0 or resposta != pais_sorteado:
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
-        lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
-        print(lista_inventario)
-        print('Você tem {} tentativa(s)'.format(tentativas))
-        resposta = input('Qual o seu palpite: ')
+        if resposta.lower() in lista_inventario:
+            print(lista_inventario)
+            print('Este pais ja foi inserido! Insira um novo')
+            print('Você tem {} tentativa(s)'.format(tentativas))
+        else:
+            tentativas -= 1
+            lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
+            print(lista_inventario)
+            print('Você tem {} tentativa(s)'.format(tentativas))
 
     else:
         print('País desconhecido')
