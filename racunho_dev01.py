@@ -3823,6 +3823,7 @@ dicionario_paises = normaliza(DADOS)
 
 cont_sorteado = sorteia_pais(DADOS)
 pais_sorteado = sorteia_pais(DADOS[cont_sorteado])
+print(pais_sorteado)
 lista_inventario = []
 tentativas = 20
 
@@ -3842,13 +3843,15 @@ while tentativas != 0 or resposta != pais_sorteado:
         print('Cala')
 
     elif resposta.lower() in dicionario_paises:
+        print(resposta.lower())
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
         long1 = dicionario_paises[resposta.lower()]['geo']['longitude'] 
         lat2 = dicionario_paises[pais_sorteado]['geo']['latitude']
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
-        
+        lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
+        print(lista_inventario)
         print('Você tem {} tentativa(s)'.format(tentativas))
         resposta = input('Qual o seu palpite: ')
 
