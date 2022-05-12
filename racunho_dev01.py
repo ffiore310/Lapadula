@@ -3819,42 +3819,56 @@ DADOS = {
 
 raio_Terra = 6371
 
+# ABERTURA JOGO
+
 dicionario_paises = normaliza(DADOS)
 
 cont_sorteado = sorteia_pais(DADOS)
 pais_sorteado = sorteia_pais(DADOS[cont_sorteado])
-print(pais_sorteado)
 lista_inventario = []
+lista_paises = []
 tentativas = 20
 
-print('Um país foi sorteado, tente adivinhar!')
-print('Você tem {} tentativa(s)'.format(tentativas))
-resposta = input('Qual o seu palpite: ')
+roda_while = True
 
-while tentativas != 0 or resposta != pais_sorteado:
-    if resposta == 'dica':
-        tentativas -= 1
+print('  =============================  \n|                               |\n|  Bem-vindo ao Insper Paises!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n \nUm pais foi escolido! \nTente adivinhar! \nVoce tem {0} tentativa(s) '.format(tentativas))
+
+while roda_while:
+    
+    resposta = input('Qual o seu palpite?: ')
+
+    if resposta == 'desisto':
+            certeza = input('Tem certeza que deseja desistir da rodada? [s|n]')
+            if certeza == 's':
+                roda_while = False
+                print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
+                print('Ate a proxima!')
+            
+    elif tentativas == 0:
+        print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
+        roda_while = False
+
+    elif resposta == 'dica':
         print('dica')
 
     elif resposta == 'inventario':
         print('Fernando')
 
-    elif resposta == 'desisto':
-        print('Cala')
+    
 
     elif resposta.lower() in dicionario_paises:
-        print(resposta.lower())
         lat1 = dicionario_paises[resposta.lower()]['geo']['latitude']
         long1 = dicionario_paises[resposta.lower()]['geo']['longitude'] 
         lat2 = dicionario_paises[pais_sorteado]['geo']['latitude']
         long2 = dicionario_paises[pais_sorteado]['geo']['longitude']
         distancia = haversine(raio_Terra, lat1, long1, lat2, long2)
         distancia = int(distancia)
-        if resposta.lower() in lista_inventario:
+        if resposta.lower() in lista_paises:
             print(lista_inventario)
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
         else:
+            lista_paises.append(resposta.lower())
             tentativas -= 1
             lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
             print(lista_inventario)
@@ -3862,4 +3876,3 @@ while tentativas != 0 or resposta != pais_sorteado:
 
     else:
         print('País desconhecido')
-        resposta = input('Qual o seu palpite: ')
