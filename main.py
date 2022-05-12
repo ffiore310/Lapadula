@@ -3836,14 +3836,18 @@ while roda_while:
     
     resposta = input('Qual o seu palpite?: ')
 
-    if resposta == 'desisto':
+    if resposta.lower() == pais_sorteado:
+        print('Voce acertou!')
+        roda_while = False
+
+    elif resposta == 'desisto':
             certeza = input('Tem certeza que deseja desistir da rodada? [s|n]')
             if certeza == 's':
                 roda_while = False
                 print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
                 print('Ate a proxima!')
             
-    elif tentativas == 0:
+    elif tentativas == 1:
         print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
         roda_while = False
 
