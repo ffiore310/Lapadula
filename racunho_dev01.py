@@ -1,5 +1,5 @@
 #Codigo
-
+from random import choice
 from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias
 
 DADOS = {
@@ -3853,7 +3853,73 @@ while roda_while:
         roda_while = False
 
     elif resposta == 'dica':
-        print('a')
+        print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
+        opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
+
+        lista_dicas = []
+        lista_cores = []
+        lista_letras = []
+        lista_letras_usadas = []
+        lista_cores_bandeira = []
+
+        
+        if opcao == 0:
+            inventario = tabela_distancias(lista_inventario)
+            print('\nInventario :\n {}'.format(inventario))
+            print(lista_dicas)
+
+        elif opcao == 1:
+            tentativas -= 4
+            cores = dicionario_paises[pais_sorteado]['bandeira']
+            for cor, i in cores.items():
+                if cor != 'outras' or i != 0:
+                    lista_cores_bandeira.append(cor)
+            cor_sorteada = choice(lista_cores_bandeira)
+            if lista_cores == []:
+                lista_cor = ['Cores da bandeira', cor_sorteada]
+                lista_cores.append(lista_cor)
+            else:
+                lista_cor.append(cor_sorteada)
+                lista_cores.append(lista_cor)
+            lista_cores_bandeira.remove(cor_sorteada)
+            print(lista_cores)
+
+        elif opcao == 2:
+            tentativas -= 3
+            capital = dicionario_paises[pais_sorteado]['capital']
+            letra_sorteada = sorteia_letra(capital, lista_letras_usadas)
+            if lista_letras == []:
+                lista_letra = ['Letras da capital', letra_sorteada]
+                lista_letras.append(lista_letra)
+            else:
+                lista_letra.append(letra_sorteada)
+                lista_letras.append(lista_letra)
+            lista_letras_usadas.append(letra_sorteada)
+            print(lista_letras)
+            
+            
+
+        elif opcao == 3:
+            tentativas -= 6
+            area = dicionario_paises[pais_sorteado]['area']
+            lista_area = [3, 'Area', area]
+            coloca_na_lista(lista_area, lista_dicas)
+            print(lista_dicas)
+
+        elif opcao == 4:
+            tentativas -= 5
+            populacao = dicionario_paises[pais_sorteado]['populacao']
+            lista_pop = [4, 'Populacao', populacao]
+            coloca_na_lista(lista_pop, lista_dicas)
+            print(lista_dicas)
+
+        elif opcao == 5:
+            tentativas -= 7
+            cont = dicionario_paises[pais_sorteado]['continente']
+            lista_cont = [5, 'Continente', cont]
+            coloca_na_lista(lista_cont, lista_dicas)
+            print(lista_dicas)
+
         
 
     elif resposta == 'inventario':
@@ -3889,77 +3955,5 @@ while roda_while:
 
 
 
-    print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
-opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
-
-dicas_terminal = []
-lista_letras_capital = []
-
-lista_dicas = [
-
-    [0, 'Sem dica', '']
-
-    [1, 'Cor da Bandeira', '']
-
-    [2, 'Letra da Capital', '']
-
-    [3, 'Area', 'Valor']
-
-    [4, 'Populacao', 'Valor pop']
-
-    [5, 'Continente', 'Nome']
-
-]
-if opcao == 0:
-    inventario = tabela_distancias(lista_inventario)
-    print('\nInventario :\n {}'.format(inventario))
-    print(dicas_terminal)
-
-elif opcao == 1:
-    for pais in dicionario_paises:
-        if pais == pais_sorteado:
-            dicionario_cores = dicionario_paises[pais]['bandeira']
-    for cor, numero in dicionario_cores.items():
-        if cor != 'outras' and numero != 0:
-            if lista_dicas[1][2] == '':
-                lista_dicas[1][2] += cor
-            else:
-                lista_dicas[1].append(cor)
-
-elif opcao == 2:
-    for pais in dicionario_paises:
-        if pais == pais_sorteado:
-            capital = dicionario_paises[pais]['capital']
-    letra_capital = sorteia_letra(capital, lista_letras_capital)
-    lista_letras_capital.append(letra_capital)
-    if lista_dicas[2][2] == '':
-        lista_dicas[2][2] += letra_capital
-    else:
-        lista_dicas[2].append(letra_capital)
-    inventario = tabela_distancias(lista_inventario)
-    print('\nInventario :\n {}'.format(inventario))
-    print(dicas_terminal)
-
     
-
-elif opcao == 3:
-    coloca_na_lista(lista_dicas[3], dicas_terminal)
-    del lista_dicas[3]
-    inventario = tabela_distancias(lista_inventario)
-    print('\nInventario :\n {}'.format(inventario))
-    print(dicas_terminal)
-
-elif opcao == 4:
-    coloca_na_lista(lista_dicas[4], dicas_terminal)
-    del lista_dicas[4]
-    inventario = tabela_distancias(lista_inventario)
-    print('\nInventario :\n {}'.format(inventario))
-    print(dicas_terminal)
-
-elif opcao == 5:
-    coloca_na_lista(lista_dicas[5], dicas_terminal)
-    del lista_dicas[5]
-    inventario = tabela_distancias(lista_inventario)
-    print('\nInventario :\n {}'.format(inventario))
-    print(dicas_terminal)
 
