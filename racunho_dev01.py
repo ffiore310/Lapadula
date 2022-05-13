@@ -1,6 +1,6 @@
 #Codigo
 
-from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine, tabela_distancias
+from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_pais, haversine, tabela_distancias
 
 DADOS = {
   "asia": {
@@ -3921,6 +3921,23 @@ elif opcao == 2:
     print('letra capital')
 
 elif opcao == 3:
-    dicas_terminal.append(lista_dicas[3])
+    coloca_na_lista(lista_dicas[3], dicas_terminal)
     del lista_dicas[3]
-    
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+elif opcao == 4:
+    coloca_na_lista(lista_dicas[4], dicas_terminal)
+    del lista_dicas[4]
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+elif opcao == 5:
+    coloca_na_lista(lista_dicas[5], dicas_terminal)
+    del lista_dicas[5]
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
