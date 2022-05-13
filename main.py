@@ -89,7 +89,7 @@ while inicializa:
 
       elif resposta == 'inventario':
           inventario = tabela_distancias(lista_inventario)
-          print('\nInventario :\n {}'.format(inventario))
+          print('\nDistancias :\n {}'.format(inventario))
 
     # CHUTE FOR DIFERENTE DA RESPOSTA
 
