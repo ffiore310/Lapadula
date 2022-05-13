@@ -3856,7 +3856,6 @@ while roda_while:
         print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
         opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
 
-        lista_dicas = []
         lista_cores = []
         lista_letras = []
         lista_letras_usadas = []
@@ -3866,7 +3865,7 @@ while roda_while:
         if opcao == 0:
             inventario = tabela_distancias(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
-            print(lista_dicas)
+            print('0')
 
         elif opcao == 1:
             tentativas -= 4
@@ -3878,7 +3877,7 @@ while roda_while:
             if lista_cores == []:
                 lista_cor = ['Cores da bandeira', cor_sorteada]
                 lista_cores.append(lista_cor)
-            else:
+            elif lista_cores != []:
                 lista_cor.append(cor_sorteada)
                 lista_cores.append(lista_cor)
             lista_cores_bandeira.remove(cor_sorteada)
@@ -3891,7 +3890,7 @@ while roda_while:
             if lista_letras == []:
                 lista_letra = ['Letras da capital', letra_sorteada]
                 lista_letras.append(lista_letra)
-            else:
+            elif lista_letras != []:
                 lista_letra.append(letra_sorteada)
                 lista_letras.append(lista_letra)
             lista_letras_usadas.append(letra_sorteada)
@@ -3903,22 +3902,19 @@ while roda_while:
             tentativas -= 6
             area = dicionario_paises[pais_sorteado]['area']
             lista_area = [3, 'Area', area]
-            coloca_na_lista(lista_area, lista_dicas)
-            print(lista_dicas)
+            print(lista_area)
 
         elif opcao == 4:
             tentativas -= 5
             populacao = dicionario_paises[pais_sorteado]['populacao']
             lista_pop = [4, 'Populacao', populacao]
-            coloca_na_lista(lista_pop, lista_dicas)
-            print(lista_dicas)
+            print(lista_pop)
 
         elif opcao == 5:
             tentativas -= 7
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = [5, 'Continente', cont]
-            coloca_na_lista(lista_cont, lista_dicas)
-            print(lista_dicas)
+            print(lista_cont)
 
         
 
