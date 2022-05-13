@@ -60,6 +60,18 @@ def tabela_distancias (l1):
         nl += ' {} km --> {}\n'.format(e[1],e[0])
     return nl
 
+def coloca_na_lista(l, lt):
+    if lt == []:
+        lt.append(l)
+        return lt
+    else:
+        i=0
+        while i < len(lt):
+            if lt[i][0] > l[0]:
+                lt.insert(i, l)
+                return lt
+            i += 1
+
 # l1 = {dicas01:valor, dica02:valor02 }
 def tabela_dicas (l1):
     nl = ''

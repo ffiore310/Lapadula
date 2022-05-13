@@ -1,6 +1,6 @@
 #Codigo
 
-from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine, tabela_distancias
+from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias
 
 DADOS = {
   "asia": {
@@ -3886,3 +3886,80 @@ while roda_while:
 
     else:
         print('País desconhecido')
+
+
+
+    print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
+opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
+
+dicas_terminal = []
+lista_letras_capital = []
+
+lista_dicas = [
+
+    [0, 'Sem dica', '']
+
+    [1, 'Cor da Bandeira', '']
+
+    [2, 'Letra da Capital', '']
+
+    [3, 'Area', 'Valor']
+
+    [4, 'Populacao', 'Valor pop']
+
+    [5, 'Continente', 'Nome']
+
+]
+if opcao == 0:
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+elif opcao == 1:
+    for pais in dicionario_paises:
+        if pais == pais_sorteado:
+            dicionario_cores = dicionario_paises[pais]['bandeira']
+    for cor, numero in dicionario_cores.items():
+        if cor != 'outras' and numero != 0:
+            if lista_dicas[1][2] == '':
+                lista_dicas[1][2] += cor
+            else:
+                lista_dicas[1].append(cor)
+
+elif opcao == 2:
+    for pais in dicionario_paises:
+        if pais == pais_sorteado:
+            capital = dicionario_paises[pais]['capital']
+    letra_capital = sorteia_letra(capital, lista_letras_capital)
+    lista_letras_capital.append(letra_capital)
+    if lista_dicas[2][2] == '':
+        lista_dicas[2][2] += letra_capital
+    else:
+        lista_dicas[2].append(letra_capital)
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+    
+
+elif opcao == 3:
+    coloca_na_lista(lista_dicas[3], dicas_terminal)
+    del lista_dicas[3]
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+elif opcao == 4:
+    coloca_na_lista(lista_dicas[4], dicas_terminal)
+    del lista_dicas[4]
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+elif opcao == 5:
+    coloca_na_lista(lista_dicas[5], dicas_terminal)
+    del lista_dicas[5]
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
