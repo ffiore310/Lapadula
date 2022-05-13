@@ -1,6 +1,6 @@
 #Codigo
 
-from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_pais, haversine, tabela_distancias
+from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias
 
 DADOS = {
   "asia": {
@@ -3893,14 +3893,15 @@ while roda_while:
 opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
 
 dicas_terminal = []
+lista_letras_capital = []
 
 lista_dicas = [
 
     [0, 'Sem dica', '']
 
-    [1, 'Cor da Bandeira', 'dados bandeira']
+    [1, 'Cor da Bandeira', '']
 
-    [2, 'Letra da Capital', 'letras']
+    [2, 'Letra da Capital', '']
 
     [3, 'Area', 'Valor']
 
@@ -3915,10 +3916,31 @@ if opcao == 0:
     print(dicas_terminal)
 
 elif opcao == 1:
-    print('cor da bandeira')
+    for pais in dicionario_paises:
+        if pais == pais_sorteado:
+            dicionario_cores = dicionario_paises[pais]['bandeira']
+    for cor, numero in dicionario_cores.items():
+        if cor != 'outras' and numero != 0:
+            if lista_dicas[1][2] == '':
+                lista_dicas[1][2] += cor
+            else:
+                lista_dicas[1].append(cor)
 
 elif opcao == 2:
-    print('letra capital')
+    for pais in dicionario_paises:
+        if pais == pais_sorteado:
+            capital = dicionario_paises[pais]['capital']
+    letra_capital = sorteia_letra(capital, lista_letras_capital)
+    lista_letras_capital.append(letra_capital)
+    if lista_dicas[2][2] == '':
+        lista_dicas[2][2] += letra_capital
+    else:
+        lista_dicas[2].append(letra_capital)
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+    
 
 elif opcao == 3:
     coloca_na_lista(lista_dicas[3], dicas_terminal)
