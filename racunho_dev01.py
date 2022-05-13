@@ -3886,3 +3886,41 @@ while roda_while:
 
     else:
         print('País desconhecido')
+
+
+
+    print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
+opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
+
+dicas_terminal = []
+
+lista_dicas = [
+
+    [0, 'Sem dica', '']
+
+    [1, 'Cor da Bandeira', 'dados bandeira']
+
+    [2, 'Letra da Capital', 'letras']
+
+    [3, 'Area', 'Valor']
+
+    [4, 'Populacao', 'Valor pop']
+
+    [5, 'Continente', 'Nome']
+
+]
+if opcao == 0:
+    inventario = tabela_distancias(lista_inventario)
+    print('\nInventario :\n {}'.format(inventario))
+    print(dicas_terminal)
+
+elif opcao == 1:
+    print('cor da bandeira')
+
+elif opcao == 2:
+    print('letra capital')
+
+elif opcao == 3:
+    dicas_terminal.append(lista_dicas[3])
+    del lista_dicas[3]
+    
