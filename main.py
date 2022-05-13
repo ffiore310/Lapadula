@@ -19,7 +19,7 @@ while inicializa:
   tentativas = 20
 
   roda_while = True
-
+  print(pais_sorteado)
   print('Um pais foi escolido! \nTente adivinhar! \nVoce tem {0} tentativa(s)\n'.format(tentativas))
 
   while roda_while:
@@ -30,6 +30,17 @@ while inicializa:
       if resposta.lower() == pais_sorteado:
           print('Parabens! Voce acertou em {} tentativa(s)'.format(20-tentativas+1))
           roda_while = False
+          a = True
+          while a:
+            novamente = input('\nDeseja jogar novamente? [s|n]')
+            if novamente == 'n':
+                roda_while = False
+                inicializa = False
+                a = False
+            elif novamente != 's':
+                print('Insira apenas [s|n]')
+            else:
+              a= False
 
     # DESISTIU DO JOGO
 
@@ -48,12 +59,14 @@ while inicializa:
                       a = False
                     elif novamente != 's':
                       print('Insira apenas [s|n]')
+                    else:
+                      a= False
 
               
       # ACABAR AS TENTATIVAS
 
       elif tentativas == 1:
-          print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
+          print('Vixe! Parece que acabaram as tentativas :\ \n Voce perdeu, o pais era: {}'.format(pais_sorteado))
           roda_while = False
           a = True
           while a:
@@ -64,6 +77,8 @@ while inicializa:
               a = False
             elif novamente != 's':
                print('Insira apenas [s|n]')
+            else:
+              a= False
 
     # MERCADO DE DICAS
 
@@ -76,7 +91,7 @@ while inicializa:
           inventario = tabela_distancias(lista_inventario)
           print('\nInventario :\n {}'.format(inventario))
 
-    # CHUTE FOR DIFERENTE
+    # CHUTE FOR DIFERENTE DA RESPOSTA
 
       elif resposta.lower() in dicionario_paises:
 
