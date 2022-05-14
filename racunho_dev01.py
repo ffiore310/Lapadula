@@ -3827,6 +3827,10 @@ cont_sorteado = sorteia_pais(DADOS)
 pais_sorteado = sorteia_pais(DADOS[cont_sorteado])
 lista_inventario = []
 lista_paises = []
+lista_cores = []
+lista_letras = []
+lista_letras_usadas = []
+lista_cores_bandeira = []
 tentativas = 20
 
 roda_while = True
@@ -3856,12 +3860,6 @@ while roda_while:
         print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
         opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
 
-        lista_cores = []
-        lista_letras = []
-        lista_letras_usadas = []
-        lista_cores_bandeira = []
-
-        
         if opcao == 0:
             inventario = tabela_distancias(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
@@ -3871,15 +3869,14 @@ while roda_while:
             tentativas -= 4
             cores = dicionario_paises[pais_sorteado]['bandeira']
             for cor, i in cores.items():
-                if cor != 'outras' or i != 0:
-                    lista_cores_bandeira.append(cor)
+              if cor != 'outras' and i != 0:
+                lista_cores_bandeira.append(cor)
             cor_sorteada = choice(lista_cores_bandeira)
-            if lista_cores == []:
-                lista_cor = ['Cores da bandeira', cor_sorteada]
-                lista_cores.append(lista_cor)
-            elif lista_cores != []:
-                lista_cor.append(cor_sorteada)
-                lista_cores.append(lista_cor)
+            if len(lista_cores) == 0:
+              lista_cores = ['Cores da bandeira', cor_sorteada]
+
+            else:
+              lista_cores.append(cor_sorteada)
             lista_cores_bandeira.remove(cor_sorteada)
             print(lista_cores)
 
@@ -3890,8 +3887,7 @@ while roda_while:
             if lista_letras == []:
                 lista_letra = ['Letras da capital', letra_sorteada]
                 lista_letras.append(lista_letra)
-            elif lista_letras != []:
-                lista_letra.append(letra_sorteada)
+            else:
                 lista_letras.append(lista_letra)
             lista_letras_usadas.append(letra_sorteada)
             print(lista_letras)
