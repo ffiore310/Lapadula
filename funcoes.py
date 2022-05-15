@@ -93,16 +93,24 @@ def mercado_dicas(tentativas, contador_pop, capital, contador_cores, contador_le
 def tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop):
     nl = ''
     if len(lista_letras) != 0: 
-        a = ''  
-        for e in lista_letras[1]:
-            a += ' {}'.format(e) 
+        a = ''
+        a += lista_letras[1][0]
+        i = 1
+        while i< len(lista_letras[1]):
+            e = lista_letras[1][i]
+            a += ', {}'.format(e)
+            i += 1
         nl += '  - {}: {}\n'.format(lista_letras[0], a)
 
     if len(lista_cores) != 0:
-        a = ''  
-        for e in lista_cores[1]:
-            a += e
-        nl += '  - {}: {}\n'.format(lista_cores[0], a)
+        a = ''
+        a += lista_cores[1][0]
+        i = 1
+        while i< len(lista_cores[1]):
+            e = lista_cores[1][i]
+            a += ', {}'.format(e)
+            i += 1
+        nl += '  - {}: {} \n'.format(lista_cores[0], a)
 
     if len(lista_pop) != 0:  
         nl += '  - {}: {}\n'.format(lista_pop[0], lista_pop[1])
