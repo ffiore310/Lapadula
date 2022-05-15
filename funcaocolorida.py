@@ -16,5 +16,3 @@ def tabela_distancia_colorida(l1):
         else:
             nl += ' {} km --> {}\n'.format(e[1],e[0])
             return bcolors.longe + nl + bcolors.RESET
-x = tabela_distancia_colorida([['Chile', 1200]])
-print(x)
