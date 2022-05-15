@@ -3898,19 +3898,19 @@ while roda_while:
         elif opcao == 3:
             tentativas -= 6
             area = dicionario_paises[pais_sorteado]['area']
-            lista_area = [3, 'Area', area]
+            lista_area = ['Area', area]
             print(lista_area)
 
         elif opcao == 4:
             tentativas -= 5
             populacao = dicionario_paises[pais_sorteado]['populacao']
-            lista_pop = [4, 'Populacao', populacao]
+            lista_pop = ['Populacao', populacao]
             print(lista_pop)
 
         elif opcao == 5:
             tentativas -= 7
             cont = dicionario_paises[pais_sorteado]['continente']
-            lista_cont = [5, 'Continente', cont]
+            lista_cont = ['Continente', cont]
             print(lista_cont)
 
         
