@@ -3883,10 +3883,10 @@ while roda_while:
             contador_cores += 1
             cor_sorteada = choice(lista_cores_bandeira)
             if len(lista_cores) == 0:
-              lista_cores = ['Cores da bandeira', cor_sorteada]
+              lista_cores = ['Cores da bandeira', [cor_sorteada]]
 
             elif cor_sorteada not in lista_cores:
-              lista_cores.append(cor_sorteada)
+              lista_cores[1].append(cor_sorteada)
             lista_cores_bandeira.remove(cor_sorteada)
             print(lista_cores)
 
@@ -3895,9 +3895,9 @@ while roda_while:
             tentativas -= 3
             letra_sorteada = sorteia_letra(capital, lista_letras_usadas)
             if lista_letras == []:
-                lista_letras = ['Letras da capital', letra_sorteada]
+                lista_letras = ['Letras da capital', [letra_sorteada]]
             else:
-                lista_letras.append(letra_sorteada)
+                lista_letras[1].append(letra_sorteada)
             lista_letras_usadas.append(letra_sorteada)
             print(lista_letras)
             
@@ -3923,6 +3923,9 @@ while roda_while:
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = ['Continente', cont]
             print(lista_cont)
+
+        else:
+          print('Opção inválida')
 
         print('Você tem {} tentativa(s)'.format(tentativas))
 
