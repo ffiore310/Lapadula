@@ -3848,7 +3848,7 @@ capital = dicionario_paises[pais_sorteado]['capital']
 
 roda_while = True
 
-print('  =============================  \n|                               |\n|  Bem-vindo ao Insper Paises!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n \nUm pais foi escolido! \nTente adivinhar! \nVoce tem {0} tentativa(s) '.format(tentativas))
+print('  =============================  \n|                               |\n|  Bem-vindo ao Insper Paises!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n \nUm pais foi escolhido! \nTente adivinhar! \nVoce tem {0} tentativa(s) '.format(tentativas))
 
 while roda_while:
     
@@ -3924,7 +3924,8 @@ while roda_while:
             lista_cont = ['Continente', cont]
             print(lista_cont)
 
-        
+        print('Você tem {} tentativa(s)'.format(tentativas))
+
 
     elif resposta == 'inventario':
         inventario = tabela_distancias(lista_inventario)
