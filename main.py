@@ -1,4 +1,5 @@
 # BANCO DE DADOS
+from funcaocolorida import tabela_distancia_colorida
 from funcoes import adiciona_em_ordem, normaliza, sorteia_pais, haversine, tabela_distancias
 from dados import DADOS
 
@@ -88,7 +89,7 @@ while inicializa:
     # PRINT INVENTARIO
 
       elif resposta == 'inventario':
-          inventario = tabela_distancias(lista_inventario)
+          inventario = tabela_distancia_colorida(lista_inventario)
           print('\nDistancias :\n {}'.format(inventario))
 
     # CHUTE FOR DIFERENTE DA RESPOSTA
@@ -107,7 +108,7 @@ while inicializa:
         # PAIS JA FOI CHUTADO
 
           if resposta.lower() in lista_paises:
-              inventario = tabela_distancias(lista_inventario)
+              inventario = tabela_distancia_colorida(lista_inventario)
               print('\nInventario :\n {}'.format(inventario))
               print('Este pais ja foi inserido! Insira um novo')
               print('Você tem {} tentativa(s)'.format(tentativas))
@@ -118,7 +119,7 @@ while inicializa:
               lista_paises.append(resposta.lower())
               tentativas -= 1
               lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
-              inventario = tabela_distancias(lista_inventario)
+              inventario = tabela_distancia_colorida(lista_inventario)
               print('\nInventario :\n {}'.format(inventario))
               print('Você tem {} tentativa(s)'.format(tentativas))
 

@@ -1,5 +1,6 @@
 #Codigo
 from random import choice
+from funcaocolorida import tabela_distancia_colorida
 from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias, mercado_dicas, tabela_dica
 
 DADOS = {
@@ -3874,7 +3875,7 @@ while roda_while:
         opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
 
         if opcao == 0:
-            inventario = tabela_distancias(lista_inventario)
+            inventario = tabela_distancia_colorida(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
             print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
 
@@ -3931,7 +3932,7 @@ while roda_while:
 
 
     elif resposta == 'inventario':
-        inventario = tabela_distancias(lista_inventario)
+        inventario = tabela_distancia_colorida(lista_inventario)
         print('\nInventario :\n {}'.format(inventario))
 
     
@@ -3945,7 +3946,7 @@ while roda_while:
         distancia = int(distancia)
 
         if resposta.lower() in lista_paises:
-            inventario = tabela_distancias(lista_inventario)
+            inventario = tabela_distancia_colorida(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
             print('Este pais ja foi inserido! Insira um novo')
             print('Você tem {} tentativa(s)'.format(tentativas))
@@ -3954,7 +3955,7 @@ while roda_while:
             lista_paises.append(resposta.lower())
             tentativas -= 1
             lista_inventario = adiciona_em_ordem(resposta.lower(), distancia, lista_inventario)
-            inventario = tabela_distancias(lista_inventario)
+            inventario = tabela_distancia_colorida(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
             print('Você tem {} tentativa(s)'.format(tentativas))
 
