@@ -3841,6 +3841,7 @@ cores = dicionario_paises[pais_sorteado]['bandeira']
 for cor, i in cores.items():
   if cor != 'outras' and i != 0:
     lista_cores_bandeira.append(cor)
+capital = dicionario_paises[pais_sorteado]['capital']
 
 roda_while = True
 
@@ -3886,10 +3887,9 @@ while roda_while:
             lista_cores_bandeira.remove(cor_sorteada)
             print(lista_cores)
 
-        elif opcao == 2 and contador_letras != len(pais_sorteado):
+        elif opcao == 2 and contador_letras != len(capital):
             contador_letras += 1
             tentativas -= 3
-            capital = dicionario_paises[pais_sorteado]['capital']
             letra_sorteada = sorteia_letra(capital, lista_letras_usadas)
             if lista_letras == []:
                 lista_letras = ['Letras da capital', letra_sorteada]
