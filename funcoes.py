@@ -29,7 +29,7 @@ def esta_na_lista(p, l):
     return False
 
 def sorteia_letra(s, l):
-    lc = ['.', ',', '-', ';', ' ']
+    lc = ['.', ',', '-', ';', ' ', '']
     s = s.lower()
     for e in (lc+l):
         s = s.replace(e, '')
