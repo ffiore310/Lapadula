@@ -1,6 +1,6 @@
 #Codigo
 from random import choice
-from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias
+from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias, mercado_dicas
 
 DADOS = {
   "asia": {
@@ -3831,6 +3831,9 @@ lista_cores = []
 lista_letras = []
 lista_letras_usadas = []
 lista_cores_bandeira = []
+lista_area = []
+lista_cont = []
+lista_pop = []
 tentativas = 20
 contador_cores = 0
 contador_letras = 0
@@ -3867,7 +3870,7 @@ while roda_while:
         roda_while = False
 
     elif resposta == 'dica':
-        print('Mercado de Dicas \n ------------------------------------------\n 0. Sem dica\n 1. Cor da bandeira    - custa 4 tentativas\n 2. Letra da capital   - custa 3 tentativas\n 3. Area               - custa 6 tentativas\n 4. Populacao          - custa 5 tentativas\n 5. Continente         - custa 7 tentativas\n ------------------------------------------')
+        print(mercado_dicas(tentativas, contador_pop, capital, contador_cores, contador_letras, lista_cores_bandeira, contador_area, contador_cont ))
         opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
 
         if opcao == 0:
@@ -3875,7 +3878,7 @@ while roda_while:
             print('\nInventario :\n {}'.format(inventario))
             print('0')
 
-        elif opcao == 1 and contador_cores != len(lista_cores_bandeira):
+        elif opcao == 2 and contador_cores != len(lista_cores_bandeira):
             tentativas -= 4
             contador_cores += 1
             cor_sorteada = choice(lista_cores_bandeira)
@@ -3887,7 +3890,7 @@ while roda_while:
             lista_cores_bandeira.remove(cor_sorteada)
             print(lista_cores)
 
-        elif opcao == 2 and contador_letras != len(capital):
+        elif opcao == 1 and contador_letras != len(capital):
             contador_letras += 1
             tentativas -= 3
             letra_sorteada = sorteia_letra(capital, lista_letras_usadas)
@@ -3900,14 +3903,14 @@ while roda_while:
             
             
 
-        elif opcao == 3 and contador_area != 1:
+        elif opcao == 4 and contador_area != 1:
             contador_area += 1
             tentativas -= 6
             area = dicionario_paises[pais_sorteado]['area']
             lista_area = ['Area', area]
             print(lista_area)
 
-        elif opcao == 4 and contador_pop != 1:
+        elif opcao == 3 and contador_pop != 1:
             contador_pop += 1
             tentativas -= 5
             populacao = dicionario_paises[pais_sorteado]['populacao']

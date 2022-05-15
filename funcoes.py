@@ -81,4 +81,23 @@ def tabela_dicas (l1):
 
 
 
-    
+def mercado_dicas(tentativas, contador_pop, capital, contador_cores, contador_letras, lista_cores_bandeira, contador_area, contador_cont ):
+    print('Mercado de Dicas')
+    print('------------------------------------------')    
+    print('0. Sem dica')
+    if tentativas > 3 and contador_letras != len(capital):
+        print('1. Letra da capital - custa 3 tentativas')
+    if tentativas > 4 and contador_cores != len(lista_cores_bandeira):
+        print('2. Cor da bandeira  - custa 4 tentativas')
+    if tentativas > 5 and contador_pop != 1:
+        print('3. População        - custa 5 tentativas')
+    if tentativas> 6 and contador_area != 1:
+        print('4. Área             - custa 6 tentativas')
+    if tentativas > 7 and contador_cont !=1:
+        print('5. Continente       - custa 7 tentativas')
+    print('-------------------------------------------')
+    return ''
+
+
+
+ 
