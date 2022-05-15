@@ -3837,6 +3837,10 @@ contador_letras = 0
 contador_area = 0
 contador_pop = 0
 contador_cont = 0
+cores = dicionario_paises[pais_sorteado]['bandeira']
+for cor, i in cores.items():
+  if cor != 'outras' and i != 0:
+    lista_cores_bandeira.append(cor)
 
 roda_while = True
 
@@ -3870,13 +3874,9 @@ while roda_while:
             print('\nInventario :\n {}'.format(inventario))
             print('0')
 
-        elif opcao == 1:
+        elif opcao == 1 and contador_cores != len(lista_cores_bandeira):
             tentativas -= 4
-            cores = dicionario_paises[pais_sorteado]['bandeira']
-            for cor, i in cores.items():
-              if cor != 'outras' and i != 0:
-                lista_cores_bandeira.append(cor)
-                contador_cores += 1
+            contador_cores += 1
             cor_sorteada = choice(lista_cores_bandeira)
             if len(lista_cores) == 0:
               lista_cores = ['Cores da bandeira', cor_sorteada]
@@ -3886,7 +3886,8 @@ while roda_while:
             lista_cores_bandeira.remove(cor_sorteada)
             print(lista_cores)
 
-        elif opcao == 2:
+        elif opcao == 2 and contador_letras != len(pais_sorteado):
+            contador_letras += 1
             tentativas -= 3
             capital = dicionario_paises[pais_sorteado]['capital']
             letra_sorteada = sorteia_letra(capital, lista_letras_usadas)
@@ -3899,19 +3900,22 @@ while roda_while:
             
             
 
-        elif opcao == 3:
+        elif opcao == 3 and contador_area != 1:
+            contador_area += 1
             tentativas -= 6
             area = dicionario_paises[pais_sorteado]['area']
             lista_area = ['Area', area]
             print(lista_area)
 
-        elif opcao == 4:
+        elif opcao == 4 and contador_pop != 1:
+            contador_pop += 1
             tentativas -= 5
             populacao = dicionario_paises[pais_sorteado]['populacao']
             lista_pop = ['Populacao', populacao]
             print(lista_pop)
 
-        elif opcao == 5:
+        elif opcao == 5 and contador_cont != 1:
+            contador_cont += 1
             tentativas -= 7
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = ['Continente', cont]
