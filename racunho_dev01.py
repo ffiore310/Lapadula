@@ -1,6 +1,6 @@
 #Codigo
 from random import choice
-from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias, mercado_dicas
+from funcoes import adiciona_em_ordem, coloca_na_lista, normaliza, sorteia_letra, sorteia_pais, haversine, tabela_distancias, mercado_dicas, tabela_dica
 
 DADOS = {
   "asia": {
@@ -3876,7 +3876,7 @@ while roda_while:
         if opcao == 0:
             inventario = tabela_distancias(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
-            print('0')
+            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
 
         elif opcao == 2 and contador_cores != len(lista_cores_bandeira):
             tentativas -= 4
@@ -3888,7 +3888,7 @@ while roda_while:
             elif cor_sorteada not in lista_cores:
               lista_cores[1].append(cor_sorteada)
             lista_cores_bandeira.remove(cor_sorteada)
-            print(lista_cores)
+            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
 
         elif opcao == 1 and contador_letras != len(capital):
             contador_letras += 1
@@ -3899,7 +3899,7 @@ while roda_while:
             else:
                 lista_letras[1].append(letra_sorteada)
             lista_letras_usadas.append(letra_sorteada)
-            print(lista_letras)
+            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
             
             
 
@@ -3908,21 +3908,21 @@ while roda_while:
             tentativas -= 6
             area = dicionario_paises[pais_sorteado]['area']
             lista_area = ['Area', area]
-            print(lista_area)
+            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
 
         elif opcao == 3 and contador_pop != 1:
             contador_pop += 1
             tentativas -= 5
             populacao = dicionario_paises[pais_sorteado]['populacao']
             lista_pop = ['Populacao', populacao]
-            print(lista_pop)
+            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
 
         elif opcao == 5 and contador_cont != 1:
             contador_cont += 1
             tentativas -= 7
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = ['Continente', cont]
-            print(lista_cont)
+            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
 
         else:
           print('Opção inválida')
