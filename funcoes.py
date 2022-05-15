@@ -57,7 +57,7 @@ def adiciona_em_ordem(p, d, l):
 def tabela_distancias (l1):
     nl = ''
     for e in l1:
-        nl += ' {} km --> {}\n'.format(e[1],e[0])
+        nl += '{} km --> {}\n'.format(e[1],e[0])
     return nl
 
 def coloca_na_lista(l, lt):
@@ -72,14 +72,6 @@ def coloca_na_lista(l, lt):
                 return lt
             i += 1
 
-# l1 = {dicas01:valor, dica02:valor02 }
-def tabela_dicas (l1):
-    nl = ''
-    for k,v in l1.items():
-        nl += '- {}: {}\n'.format(k,v)
-    return nl
-
-
 
 def mercado_dicas(tentativas, contador_pop, capital, contador_cores, contador_letras, lista_cores_bandeira, contador_area, contador_cont ):
     print('Mercado de Dicas')
@@ -91,13 +83,28 @@ def mercado_dicas(tentativas, contador_pop, capital, contador_cores, contador_le
         print('2. Cor da bandeira  - custa 4 tentativas')
     if tentativas > 5 and contador_pop != 1:
         print('3. População        - custa 5 tentativas')
-    if tentativas> 6 and contador_area != 1:
+    if tentativas > 6 and contador_area != 1:
         print('4. Área             - custa 6 tentativas')
     if tentativas > 7 and contador_cont !=1:
         print('5. Continente       - custa 7 tentativas')
     print('-------------------------------------------')
     return ''
 
+def tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop):
+    nl = ''
+    if len(lista_letras) != 0:  
+        nl += '  - {}: {}\n'.format(lista_letras[0], lista_letras[1])
 
+    if len(lista_cores) != 0:  
+        nl += '  - {}: {}\n'.format(lista_cores[0], lista_cores[1])
 
- 
+    if len(lista_pop) != 0:  
+        nl += '  - {}: {}\n'.format(lista_pop[0], lista_pop[1])
+
+    if len(lista_area) != 0:  
+        nl += '  - {}: {}\n'.format(lista_area[0], lista_area[1])
+
+    if len(lista_cont) != 0:  
+        nl += '  - {}: {}\n'.format(lista_cont[0], lista_cont[1])
+    
+    return nl
