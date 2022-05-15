@@ -80,27 +80,5 @@ def tabela_dicas (l1):
     return nl
 
 
-tabela_ini_dicas = [ 
-[0, '0. Sem dicas'],
-[1, '1. Cor da bandeira  - custa 4 tentativas'],
-[2, '2. Letra da capital - custa 3 tentativas'],
-[3, '3. Área             - custa 6 tentativas'],
-[4, '4. População        - custa 5 tentativas'],
-[5, '5. Continente       - custa 7 tentativas'],
-]
-
-dicas_ja = []
-opcao = int(input('opcao'))
-def tabela_dicas(dicas_ja, opcao):
-    if opcao not in dicas_ja and opcao > 2:
-        dicas_ja.append(opcao)
-        for e in tabela_ini_dicas:
-            print (e[1])
-    elif opcao in dicas_ja and opcao >2:
-        tabela_ini_dicas[opcao][1] = ''
-        for e in tabela_ini_dicas:
-            print (e[1])
-    
-tabela_dicas(tabela_ini_dicas, opcao)
 
     
