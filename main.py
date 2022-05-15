@@ -21,7 +21,7 @@ while inicializa:
 
   roda_while = True
   print(pais_sorteado)
-  print('Um pais foi escolido! \nTente adivinhar! \nVoce tem {0} tentativa(s)\n'.format(tentativas))
+  print('Um pais foi escolhido! \nTente adivinhar! \nVoce tem {0} tentativa(s)\n'.format(tentativas))
 
   while roda_while:
       
