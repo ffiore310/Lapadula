@@ -3933,6 +3933,7 @@ while roda_while:
     elif resposta == 'inventario':
         inventario = tabela_distancias(lista_inventario)
         print('\nInventario :\n {}'.format(inventario))
+        print('Dicas:\n {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
 
     
     elif resposta.lower() in dicionario_paises:
