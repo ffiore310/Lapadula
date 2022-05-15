@@ -3833,6 +3833,10 @@ lista_letras_usadas = []
 lista_cores_bandeira = []
 tentativas = 20
 contador_cores = 0
+contador_letras = 0
+contador_area = 0
+contador_pop = 0
+contador_cont = 0
 
 roda_while = True
 
@@ -3866,7 +3870,7 @@ while roda_while:
             print('\nInventario :\n {}'.format(inventario))
             print('0')
 
-        elif opcao == 1: #or tentativas > 4 or len(lista_cores)-1 != contador_cores:
+        elif opcao == 1:
             tentativas -= 4
             cores = dicionario_paises[pais_sorteado]['bandeira']
             for cor, i in cores.items():
@@ -3882,7 +3886,7 @@ while roda_while:
             lista_cores_bandeira.remove(cor_sorteada)
             print(lista_cores)
 
-        elif opcao == 2: #or tentativas > 3 or len(lista_letras_usadas) != len(pais_sorteado):
+        elif opcao == 2:
             tentativas -= 3
             capital = dicionario_paises[pais_sorteado]['capital']
             letra_sorteada = sorteia_letra(capital, lista_letras_usadas)
