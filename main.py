@@ -38,7 +38,7 @@ while inicializa:
 
   roda_while = True
   
-  print('  =============================  \n|                               |\n|  Bem-vindo ao Insper Paises!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n \nUm pais foi escolhido! \nTente adivinhar! \nVoce tem {0} tentativa(s) '.format(tentativas))
+  print('  =============================  \n|                               |\n|  Bem-vindo ao Globo Game!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n \nUm pais foi escolhido! \nTente adivinhar! \nVoce tem {0} tentativa(s) '.format(tentativas))
 
 
   while roda_while:
@@ -47,7 +47,7 @@ while inicializa:
 
     # ACERTOU O JOGO
       if resposta.lower() == pais_sorteado:
-          print('Parabens! Voce acertou em {} tentativa(s)'.format(20-tentativas+1))
+          print('Parabens campeão! Voce acertou em {} tentativa(s)'.format(20-tentativas+1))
           roda_while = False
           a = True
           while a:
