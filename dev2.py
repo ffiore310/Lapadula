@@ -1,3 +1,4 @@
+from termcolor import colored
 
 tabela_ini_dicas = [ 
 [0, ' Sem dicas'],
@@ -28,6 +29,7 @@ while True:
         return ''
         
     print(tabela_dicas(dicas_ja, opcao, tabela_ini_dicas))
+
 
 
 
