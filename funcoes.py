@@ -57,7 +57,12 @@ def adiciona_em_ordem(p, d, l):
 def tabela_distancias (l1):
     nl = ''
     for e in l1:
-        nl += '{} km --> {}\n'.format(e[1],e[0])
+        if e[1] < 2500:
+            nl += '{} km --> {}\n'.format(retorna_cor(5, 252, 9,e[1]),e[0])
+        elif e[1] < 10000:
+            nl += '{} km --> {}\n'.format(retorna_cor(240, 252, 5,e[1]),e[0])
+        else:
+            nl += '{} km --> {}\n'.format(retorna_cor(252, 5, 5,e[1]),e[0])
     return nl
 
 def coloca_na_lista(l, lt):
