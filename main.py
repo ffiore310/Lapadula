@@ -147,7 +147,7 @@ while inicializa:
 
     # ACABAR AS TENTATIVAS
 
-      elif tentativas == 1 :
+      elif tentativas == 1 or tentativas < 1 :
             print('Vixe! Parece que acabaram as tentativas :\ \n Voce perdeu, o pais era: {}'.format(pais_sorteado))
             roda_while = False
             a = True
