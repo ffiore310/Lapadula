@@ -3866,10 +3866,6 @@ while roda_while:
                 print('Que deselegante desistir, o pais era: {}'.format(pais_sorteado))
                 print('Ate a proxima!')
             
-    elif tentativas == 1:
-        print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
-        roda_while = False
-
     elif resposta == 'dica':
         print(mercado_dicas(tentativas, contador_pop, capital, contador_cores, contador_letras, lista_cores_bandeira, contador_area, contador_cont ))
         opcao = int(input('Escolha sua opcao [0|1|2|3|4|5]: '))
@@ -3924,6 +3920,11 @@ while roda_while:
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = ['Continente', cont]
             print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+        
+        elif tentativas == 1:
+          print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
+          roda_while = False
+
 
         else:
           print('Opção inválida')
