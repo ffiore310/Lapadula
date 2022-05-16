@@ -3923,16 +3923,18 @@ while roda_while:
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = ['Continente', cont]
             print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
-        
-        elif tentativas == 1:
-          print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
-          roda_while = False
-
-
         else:
           print('Opção inválida')
-        
+
         print('Você tem {} tentativa(s)'.format(tentativas))
+
+        
+    elif tentativas <= 1:
+      print('Voce perdeu, o pais era: {}'.format(pais_sorteado))
+      roda_while = False
+
+
+    
 
 
     elif resposta == 'inventario':
