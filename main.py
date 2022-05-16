@@ -6,8 +6,8 @@ from dados import DADOS
 
 raio_Terra = 6371
 
-# ABERTURA JOGO
-print('  =============================  \n|                               |\n|  Bem-vindo ao Insper Paises!  |\n|                               |\n  ==== Design de Software =====\n \n Comandos:\n     dica       - entra no mercado de dicas\n     desisto    - desiste da rodada\n     inventario - exibe sua posicao\n')
+# ABERTURA JOGO 
+
 inicializa = True
 
 while inicializa:
@@ -82,23 +82,6 @@ while inicializa:
                     else:
                       a= False
 
-              
-      # ACABAR AS TENTATIVAS
-
-      elif tentativas == 1 :
-          print('Vixe! Parece que acabaram as tentativas :\ \n Voce perdeu, o pais era: {}'.format(pais_sorteado))
-          roda_while = False
-          a = True
-          while a:
-            novamente = input('\nDeseja jogar novamente? [s|n]')
-            if novamente == 'n':
-              roda_while = False
-              inicializa = False
-              a = False
-            elif novamente != 's':
-               print('Insira apenas [s|n]')
-            else:
-              a= False
 
     # MERCADO DE DICAS
 
@@ -109,7 +92,7 @@ while inicializa:
         if opcao == 0:
             inventario = tabela_distancia_colorida(lista_inventario)
             print('\nInventario :\n {}'.format(inventario))
-            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+            print('Dicas: \n    {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
 
         elif opcao == 2 and contador_cores != len(lista_cores_bandeira):
             tentativas -= 4
@@ -121,7 +104,7 @@ while inicializa:
             elif cor_sorteada not in lista_cores:
               lista_cores[1].append(cor_sorteada)
             lista_cores_bandeira.remove(cor_sorteada)
-            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+            print('Dicas: \n    {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
 
         elif opcao == 1 and contador_letras != len(capital):
             contador_letras += 1
@@ -132,7 +115,7 @@ while inicializa:
             else:
                 lista_letras[1].append(letra_sorteada)
             lista_letras_usadas.append(letra_sorteada)
-            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+            print('Dicas: \n    {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
             
             
 
@@ -141,26 +124,43 @@ while inicializa:
             tentativas -= 6
             area = dicionario_paises[pais_sorteado]['area']
             lista_area = ['Area', area]
-            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+            print('Dicas: \n    {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
 
         elif opcao == 3 and contador_pop != 1:
             contador_pop += 1
             tentativas -= 5
             populacao = dicionario_paises[pais_sorteado]['populacao']
             lista_pop = ['Populacao', populacao]
-            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+            print('Dicas: \n    {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
 
         elif opcao == 5 and contador_cont != 1:
             contador_cont += 1
             tentativas -= 7
             cont = dicionario_paises[pais_sorteado]['continente']
             lista_cont = ['Continente', cont]
-            print(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop))
+            print('Dicas: \n    {}'.format(tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop)))
 
         else:
           print('Opção inválida')
 
         print('Você tem {} tentativa(s)'.format(tentativas))
+
+    # ACABAR AS TENTATIVAS
+
+      elif tentativas == 1 :
+            print('Vixe! Parece que acabaram as tentativas :\ \n Voce perdeu, o pais era: {}'.format(pais_sorteado))
+            roda_while = False
+            a = True
+            while a:
+              novamente = input('\nDeseja jogar novamente? [s|n]')
+              if novamente == 'n':
+                roda_while = False
+                inicializa = False
+                a = False
+              elif novamente != 's':
+                print('Insira apenas [s|n]')
+              else:
+                a= False
 
     # PRINT INVENTARIO
 
