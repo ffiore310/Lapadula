@@ -122,3 +122,8 @@ def tabela_dica(lista_letras,lista_cores,lista_area, lista_cont, lista_pop):
         nl += '  - {}: {}\n'.format(lista_cont[0], lista_cont[1])
     
     return nl
+
+def retorna_cor(r, g, b, texto):
+    return f"\033[38;2;{r};{g};{b}m{texto}\033[38;2;255;255;255m"
+
+
